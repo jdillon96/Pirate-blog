@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function ArticleEntry({ addArticle }) {
+export default function ArticleEntry({ addArticle, setWriting }) {
   const [title, setTitle] = useState("")
   const [body, setBody] = useState("")
   const [image, setImage] = useState("")
@@ -34,6 +34,7 @@ export default function ArticleEntry({ addArticle }) {
         Image (Optional) (Copy image address)
         <input value={image} onChange={(e) => setImage(e.target.value)} />
         <button type="submit">Create</button>
+        <button button onClick={() => setWriting(false)}>Cancel</button>
       </form>
     </div>
   )
