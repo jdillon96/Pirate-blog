@@ -3,15 +3,19 @@ import { useState } from "react"
 export default function ArticleEntry({ addArticle }) {
   const [title, setTitle] = useState("")
   const [body, setBody] = useState("")
+  const [image, setImage] = useState("")
   const [error, setError] = useState(null)
 
   function submit(e) {
     setError(null)
     e.preventDefault()
+    if (!image.trim()){
+      setImage("")
+    }
     if (!title.trim() || !body.trim()) {
       setError("Both the title and body must be supplied")
     } else {
-      addArticle({ title, body })
+      addArticle({ title, body, image })
     }
   }
 
@@ -27,6 +31,8 @@ export default function ArticleEntry({ addArticle }) {
           value={body}
           onChange={(e) => setBody(e.target.value)}
         ></textarea>
+        Image (Optional) (Copy image address)
+        <input value={image} onChange={(e) => setImage(e.target.value)} />
         <button type="submit">Create</button>
       </form>
     </div>
