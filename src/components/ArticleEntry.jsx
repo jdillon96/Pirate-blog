@@ -13,7 +13,7 @@ export default function ArticleEntry({ addArticle, setWriting }) {
       setImage("")
     }
     if (!title.trim() || !body.trim()) {
-      setError("Both the title and body must be supplied")
+      setError("Title and body are required matey")
     } else {
       addArticle({ title, body, image })
     }
@@ -33,8 +33,10 @@ export default function ArticleEntry({ addArticle, setWriting }) {
         ></textarea>
         Image (Optional) (Copy image address)
         <input value={image} onChange={(e) => setImage(e.target.value)} />
+        <section className="buttons">
         <button type="submit">Create</button>
         <button button onClick={() => setWriting(false)}>Cancel</button>
+        </section>
       </form>
     </div>
   )

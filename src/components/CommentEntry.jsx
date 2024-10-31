@@ -27,8 +27,10 @@ export default function CommentEntry({ addComment, setCwriting, articleId }) {
           value={text}
           onChange={(e) => setText(e.target.value)}
         ></textarea>
+        <section className="buttons">
         <button type="submit">Create</button>
         <button button onClick={() => setCwriting(false)}>Cancel</button>
+        </section>
       </form>
     </div>
   )

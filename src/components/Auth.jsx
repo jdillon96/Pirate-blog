@@ -1,15 +1,15 @@
 import { login, logout, loggedInUserDisplayName } from "../services/authService"
 
 export function SignIn() {
-  return <button onClick={login}>Sign In</button>
+  return <button onClick={login}>Embark</button>
 }
 
 export function SignOut() {
   return (
     <div>
-      Hello, {loggedInUserDisplayName()}
+      Ahoy, {loggedInUserDisplayName()}
       <>   </>
-      <button onClick={logout}>Sign Out</button>
+      <button onClick={logout}>Disembark</button>
     </div>
   )
 }

@@ -1,9 +1,20 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-image: url("https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvcHgxMDI1OTE1LWltYWdlLWpvYjY1NF8xLWwwdWJ1NTV3LmpwZw.jpg");
+  background-image: url(../images/Paper.jpg);
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  text-wrap: wrap;
+}
+
+@font-face {
+  font-family: 'Pirate';
+  src: local('Pirate'), url(../fonts/TheRumIsGone.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Calligraphy';
+  src: local('Calligraphy'), url(../fonts/TreasureMapDeadhand.ttf) format('truetype');
 }
 
 .App {
@@ -17,38 +28,81 @@ body {
 header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: black;
   color: white;
   grid-column: 1 / span 2;
   padding: 10px 5px;
-  border-bottom:  10px solid #5e60ce;
+  border-bottom:  10px solid gray;
+  font-family: "Pirate";
+}
+
+header button {
+  background-color: black;
+  color: white;
+  font-family: "Pirate";
+  border: 5px solid gray;
+}
+
+h1{
+  font-size: 50px;
+  margin: 0px;
+  padding: 0px;
 }
 
 form {
   padding: 10px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
+  font-family: "Calligraphy";
+  font-size: 40px;
+
 }
 
 form input,
 form textarea {
-  margin-bottom: 10px;
-  width: 300px;
+  margin-bottom: 20px;
+  width: 500px;
+}
+
+.buttons {
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.buttons button{
+  width: 150px;
+  height: 100px;
+  background-position: center;
 }
 
 nav,
-article {
+.entry {
   height: 100%;
   padding: 10px;
 }
 
 nav {
-  background-color: cyan;
-  border-right:  10px solid #5e60ce;
+  background-image: url(../images/Wood.jpg);
+  background-repeat: repeat-y;
+  border-right:  10px solid #7f5539;
 }
 
-button {
+nav p {
+  background-image: url(../images/Plank.png);
+  background-position: center;
+  background-size: auto;
+  padding: 10px;
+  font-family: "Pirate";
+  font-size: 20px;
+}
+
+button, header h1 {
   cursor: pointer;
 }
 
@@ -59,14 +113,70 @@ nav p:hover {
 
 article .date {
   font-style: italic;
+  font-size: 50px;
 }
 
 article .body {
   white-space: break-spaces;
+  font-size: 40px;
 }
 
 .error {
   background-color: red;
   color: gold;
   padding: 5px;
+}
+
+article{
+  font-family: "Calligraphy";
+  text-align: center;
+}
+
+.instruction, article .title {
+  text-align: center;
+  font-family: "Calligraphy";
+  font-size: 100px;
+  padding: 10px;
+  margin: 5px;
+}
+
+.comments {
+  text-align: left;
+  margin-left: 20px;
+  font-family: "Calligraphy";
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+}
+
+.comments button{
+  width: 500px;
+  height: 100px;
+  background-position: center;
+}
+
+.buttons button, .comments button, .comment {
+  background-image: url(../images/Plank.png);
+  background-size: auto;
+  font-family: "Calligraphy";
+  font-size: 50px;
+  border: none;
+}
+
+.comment{
+  background-size: cover;
+  text-wrap: wrap;
+  width: 80%;
+}
+
+
+
+.comment h2{
+  padding-left: 10px;
+  font-size: 50px;
+}
+
+.comment p{
+  padding-left: 20px;
+  font-size: 40px;
 }

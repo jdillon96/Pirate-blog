@@ -52,29 +52,36 @@ export default function App() {
     })
   }
 
+  const Clear = () => {
+    setArticle(null);
+    setAwriting(false);
+    setCwriting(false);
+  };
+
   return (
     <div className="App">
       <header>
-        {user && <button onClick={() => setAwriting(true)}>New Article</button>}
-        Blog
+        {user && <button onClick={() => setAwriting(true)}>New Entry</button>}
+        <h1 onClick={Clear}>🏴‍☠️ Cap'n's Log 🏴‍☠️</h1>
         {!user ? <SignIn /> : <SignOut />}
       </header>
 
-      {!user ? "" : <Nav articles={articles} setArticle={setArticle} />}
+      {!user ? "" : <Nav articles={articles} setArticle={setArticle}/>}
 
       {!user ? (
-        <h1>Please Log In!</h1>
+        <h1 className="instruction">Embark matey!</h1>
       ) : awriting ? (
         <ArticleEntry addArticle={addArticle} setWriting = {setAwriting} />
       ) : !article ? (
-        <p>No article selected</p>
+        <h1 className="instruction">Select an entry matey!</h1>
       ) : (
-        <section>
+        <section className="entry">
         <Article article={article}/>
         {cwriting ? (
           <CommentEntry addComment={addComment} setCwriting={setCwriting} articleId={article.id} />
         ) : 
-        <section>
+        <section className="comments">
+        <h1 className="comments">Comments:</h1>
         <button onClick={() => setCwriting(true)}>Add a Comment!</button>
         <Comments comments={comments} articleId={article.id}/>
         </section>}
