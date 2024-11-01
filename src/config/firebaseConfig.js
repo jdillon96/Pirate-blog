@@ -1,9 +1,9 @@
-// Import the functions you need from the SDKs you need
+// Imports
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth"
 import { getFirestore } from "firebase/firestore"
 
-// Your web app's Firebase configuration
+// Blog's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyBsY7hlbLjH2aB4H96uCdZ_uEdvPjzMUlc",
   authDomain: "best-blog-d880b.firebaseapp.com",
