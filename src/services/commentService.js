@@ -1,6 +1,4 @@
-// This service completely hides the data store from the rest of the app.
-// No other part of the app knows how the data is stored. If anyone wants
-// to read or write data, they have to go through this service.
+// Creates and fetches comments from firebase db outside of actual components (seperation of concerns)
 
 import { db } from "../config/firebaseConfig"
 import {
@@ -19,8 +17,6 @@ export async function createComment({ name, text, articleId }) {
   return { id: docRef.id, ...data }
 }
 
-// NOT FINISHED: This only gets the first 20 comments. In a real app,
-// you would implement pagination.
 export async function fetchComments() {
   const snapshot = await getDocs(
     query(collection(db, "comments"), orderBy("date", "desc"), limit(20))

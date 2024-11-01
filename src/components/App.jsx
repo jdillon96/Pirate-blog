@@ -19,10 +19,7 @@ export default function App() {
   const [cwriting, setCwriting] = useState(false)
   const user = useAuthentication()
 
-  // This is a trivial app, so just fetch all the articles only when
-  // a user logs in. A real app would do pagination. Note that
-  // "fetchArticles" is what gets the articles from the service and
-  // then "setArticles" writes them into the React state.
+  // fetches articles and comments from database
   useEffect(() => {
     if (user) {
       fetchArticles().then(setArticles)
@@ -35,8 +32,7 @@ export default function App() {
     }
   }, [user])
 
-  // Update the "database" *then* update the internal React state. These
-  // two steps are definitely necessary.
+  // Update the "database" then react for adding articles and comments
   function addArticle({ title, body, image }) {
     createArticle({ title, body, image }).then((article) => {
       setArticle(article)
@@ -70,21 +66,31 @@ export default function App() {
 
       {!user ? (
         <h1 className="instruction">Embark matey!</h1>
+        
       ) : awriting ? (
+
         <ArticleEntry addArticle={addArticle} setWriting = {setAwriting} />
+
       ) : !article ? (
+
         <h1 className="instruction">Select an entry matey!</h1>
+
       ) : (
+
         <section className="entry">
+        
         <Article article={article}/>
+        
         {cwriting ? (
           <CommentEntry addComment={addComment} setCwriting={setCwriting} articleId={article.id} />
         ) : 
+
         <section className="comments">
         <h1 className="comments">Comments:</h1>
         <button onClick={() => setCwriting(true)}>Add a Comment!</button>
         <Comments comments={comments} articleId={article.id}/>
         </section>}
+
         </section>
       )}
     </div>
